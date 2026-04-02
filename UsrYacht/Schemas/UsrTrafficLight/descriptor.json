@@ -2,7 +2,7 @@
   "Descriptor": {
     "UId": "a9a559b6-5ec5-4bfc-9053-927b07132e68",
     "Name": "UsrTrafficLight",
-    "ModifiedOnUtc": "\/Date(1774974505000)\/",
+    "ModifiedOnUtc": "\/Date(1775069919000)\/",
     "Parent": {
       "UId": "11ab4bcb-9b23-4b6d-9c86-520fae925d75",
       "Name": "BaseLookup"
