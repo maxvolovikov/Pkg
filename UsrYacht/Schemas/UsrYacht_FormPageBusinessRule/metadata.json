@@ -1,0 +1,172 @@
+﻿{
+  "MetaData": {
+    "Schema": {
+      "ManagerName": "AddonSchemaManager",
+      "UId": "dc94baf3-50c4-4550-bf4c-86c6ef8b8683",
+      "A2": "UsrYacht_FormPageBusinessRule",
+      "A5": "6b6da8ce-d4ed-4176-8e2f-b19666b88cfa",
+      "B1": [],
+      "B2": [],
+      "B3": [],
+      "B6": "87297728-6f9b-4756-af57-3e89768d15ec",
+      "B8": "8.3.3.3193",
+      "AD1": "89bfd2b1-79af-4856-92b6-46ff631c0425",
+      "AD2": "ClientUnitSchemaManager",
+      "AD3": "BusinessRule",
+      "AD5": "3a2d6f51-1bfc-4c17-aacb-b53de4866b7c",
+      "AD4": {
+        "JI0": "Terrasoft.Core.BusinessRules.BusinessRules",
+        "BRS1": [
+          {
+            "JI0": "Terrasoft.Core.BusinessRules.BusinessRule",
+            "UId": "9bbfab90-70d6-4319-7948-77dc388fdb7f",
+            "BR1": [
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.BusinessRuleCase",
+                "UId": "4752194f-c766-aa98-acda-5607adc23157",
+                "BRC1": {
+                  "JI0": "Terrasoft.Core.BusinessRules.Models.Conditions.BusinessRuleGroupCondition",
+                  "UId": "8971e9d5-04ff-29bd-2da2-6496b11c85dc",
+                  "BGC1": 1,
+                  "BGC2": [
+                    {
+                      "JI0": "Terrasoft.Core.BusinessRules.Models.Conditions.BusinessRuleCondition",
+                      "UId": "4d6db4bb-7c7d-634d-6904-ff98a53499b8",
+                      "BCO1": {
+                        "JI0": "Terrasoft.Core.BusinessRules.Models.Expressions.BusinessRuleAttributeExpression",
+                        "UId": "ca357ab1-38ed-a3a7-d000-508506364e26",
+                        "BRE1": "Lookup",
+                        "BRE2": "AttributeValue",
+                        "BRX1": "PDS_UsrDriveType_0kx2cvl"
+                      }
+                    }
+                  ]
+                },
+                "BRC2": [
+                  {
+                    "JI0": "Terrasoft.Core.BusinessRules.Models.Actions.BusinessRuleActionHideElement",
+                    "UId": "ddfba230-479f-d917-8a2c-ce2e9eba229c",
+                    "BRA4": "Comment"
+                  }
+                ]
+              }
+            ],
+            "BR2": [
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.Trigger",
+                "UId": "d7405be2-c3cf-5783-05ec-641cc3b3a124",
+                "BRT2": 2
+              },
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.Trigger",
+                "UId": "5ca6d4f5-cb9e-3551-e2e3-ac9f18b29c6f",
+                "BRT1": "PDS_UsrDriveType_0kx2cvl"
+              }
+            ],
+            "BR3": "BusinessRule_54aa61c"
+          },
+          {
+            "JI0": "Terrasoft.Core.BusinessRules.BusinessRule",
+            "UId": "fb1120d0-23c9-f4ce-74e8-773c1743eccf",
+            "BR1": [
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.BusinessRuleCase",
+                "UId": "20d5f604-47ed-af1a-7c2c-8be28899cf69",
+                "BRC1": {
+                  "JI0": "Terrasoft.Core.BusinessRules.Models.Conditions.BusinessRuleGroupCondition",
+                  "UId": "d0db5891-a048-2057-25d9-38d5dfba5612",
+                  "BGC1": 1,
+                  "BGC2": [
+                    {
+                      "JI0": "Terrasoft.Core.BusinessRules.Models.Conditions.BusinessRuleCondition",
+                      "UId": "2cab1e61-9ea2-5939-6386-7050d204cef9",
+                      "BCO1": {
+                        "JI0": "Terrasoft.Core.BusinessRules.Models.Expressions.BusinessRuleAttributeExpression",
+                        "UId": "a6ef395b-6f5c-c374-2a7f-a04115013483",
+                        "BRE1": "Lookup",
+                        "BRE2": "AttributeValue",
+                        "BRX1": "PDS_UsrDriveType_0kx2cvl"
+                      },
+                      "BCO3": 1
+                    }
+                  ]
+                },
+                "BRC2": [
+                  {
+                    "JI0": "Terrasoft.Core.BusinessRules.Models.Actions.BusinessRuleActionShowElement",
+                    "UId": "4f307900-b5b8-0221-18d9-b8d38a063d19",
+                    "BRA4": "Comment"
+                  }
+                ]
+              }
+            ],
+            "BR2": [
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.Trigger",
+                "UId": "d5f6d9f0-a818-628c-179a-53cad364a422",
+                "BRT2": 2
+              },
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.Trigger",
+                "UId": "5d3dde3f-83e7-1319-89c1-f084673d4cf2",
+                "BRT1": "PDS_UsrDriveType_0kx2cvl"
+              }
+            ],
+            "BR3": "BusinessRule_77ac69e"
+          },
+          {
+            "JI0": "Terrasoft.Core.BusinessRules.BusinessRule",
+            "UId": "75d26793-3199-47c4-93c0-3886642ab0fa",
+            "BR1": [
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.BusinessRuleCase",
+                "UId": "3ab31c92-3308-cf16-5e50-251ba361e5fd",
+                "BRC1": {
+                  "JI0": "Terrasoft.Core.BusinessRules.Models.Conditions.BusinessRuleGroupCondition",
+                  "UId": "5aaddf47-540a-64fd-6e9f-2cc1f442b0c2",
+                  "BGC1": 1,
+                  "BGC2": [
+                    {
+                      "JI0": "Terrasoft.Core.BusinessRules.Models.Conditions.BusinessRuleCondition",
+                      "UId": "8e170a7d-9419-ca71-af1e-76e3fcf6cbbd",
+                      "BCO1": {
+                        "JI0": "Terrasoft.Core.BusinessRules.Models.Expressions.BusinessRuleSysValueExpression",
+                        "UId": "025359cc-6f53-a8b8-ca5e-a7b7ad0a5e66",
+                        "BRE1": "ObjectList",
+                        "BRE2": "SysValue",
+                        "BSV1": "CurrentUserRoles"
+                      },
+                      "BCO2": {
+                        "JI0": "Terrasoft.Core.BusinessRules.Models.Expressions.BusinessRuleValueExpression",
+                        "UId": "fc0cf087-e357-dc24-a8c7-febc1241cbf9",
+                        "BRE1": "Lookup",
+                        "BRE3": "SysAdminUnit",
+                        "BVE1": "74bd4686-da95-4f3b-8d79-9cd26b592bfe"
+                      },
+                      "BCO3": 11
+                    }
+                  ]
+                },
+                "BRC2": [
+                  {
+                    "JI0": "Terrasoft.Core.BusinessRules.Models.Actions.BusinessRuleActionShowElement",
+                    "UId": "ed97349a-a404-b999-9694-c5135b79aaa3",
+                    "BRA4": "TicketPrice"
+                  }
+                ]
+              }
+            ],
+            "BR2": [
+              {
+                "JI0": "Terrasoft.Core.BusinessRules.Models.Trigger",
+                "UId": "ff4a8bab-90b0-fef8-9f50-6ee7b4580efa",
+                "BRT2": 2
+              }
+            ],
+            "BR3": "BusinessRule_8b8217d"
+          }
+        ]
+      }
+    }
+  }
+}
