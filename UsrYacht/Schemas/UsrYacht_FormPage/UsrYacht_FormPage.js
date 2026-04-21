@@ -1,4 +1,4 @@
-define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/()/**SCHEMA_ARGS*/ {
+define("UsrYacht_FormPage", /**SCHEMA_DEPS*/["@creatio-devkit/common"]/**SCHEMA_DEPS*/, function/**SCHEMA_ARGS*/(sdk)/**SCHEMA_ARGS*/ {
 	return {
 		viewConfigDiff: /**SCHEMA_VIEW_CONFIG_DIFF*/[
 			{
@@ -68,6 +68,87 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
+				"name": "ActionsButton",
+				"values": {
+					"type": "crt.Button",
+					"caption": "#ResourceString(ActionsButton_caption)#",
+					"color": "outline",
+					"disabled": false,
+					"size": "medium",
+					"iconPosition": "left-icon",
+					"visible": true,
+					"menuItems": [],
+					"clickMode": "menu",
+					"icon": "actions-button-icon"
+				},
+				"parentName": "CardToggleContainer",
+				"propertyName": "items",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "CalcAvgPriceProcessMenuItem",
+				"values": {
+					"type": "crt.MenuItem",
+					"caption": "#ResourceString(CalcAvgPriceProcessMenuItem_caption)#",
+					"visible": true,
+					"icon": "calculator-icon",
+					"clicked": {
+						"request": "crt.RunBusinessProcessRequest",
+						"params": {
+							"processName": "UsrCalcAvgTicketPriceProcess",
+							"processRunType": "ForTheSelectedPage",
+							"saveAtProcessStart": true,
+							"showNotification": true,
+							"recordIdProcessParameterName": "YachtIdParameter"
+						}
+					}
+				},
+				"parentName": "ActionsButton",
+				"propertyName": "menuItems",
+				"index": 0
+			},
+			{
+				"operation": "insert",
+				"name": "RunWebServiceMenuItem",
+				"values": {
+					"type": "crt.MenuItem",
+					"caption": "#ResourceString(RunWebServiceMenuItem_caption)#",
+					"visible": true,
+					"clicked": {
+						"request": "usr.RunMaxPriceWebServiceRequest"
+					},
+					"icon": "reload-icon"
+				},
+				"parentName": "ActionsButton",
+				"propertyName": "menuItems",
+				"index": 1
+			},
+			{
+				"operation": "insert",
+				"name": "CreateYachtRentals",
+				"values": {
+					"type": "crt.MenuItem",
+					"caption": "#ResourceString(CreateYachtRentals_caption)#",
+					"visible": true,
+					"clicked": {
+						"request": "crt.RunBusinessProcessRequest",
+						"params": {
+							"processName": "UsrProcess_9d30f8e",
+							"processRunType": "ForTheSelectedPage",
+							"saveAtProcessStart": true,
+							"showNotification": true,
+							"recordIdProcessParameterName": "ProcessYachtIdParameter"
+						}
+					},
+					"icon": "add-button-icon"
+				},
+				"parentName": "ActionsButton",
+				"propertyName": "menuItems",
+				"index": 2
+			},
+			{
+				"operation": "insert",
 				"name": "PushMeButton",
 				"values": {
 					"type": "crt.Button",
@@ -85,7 +166,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 				},
 				"parentName": "CardToggleContainer",
 				"propertyName": "items",
-				"index": 0
+				"index": 1
 			},
 			{
 				"operation": "insert",
@@ -100,7 +181,11 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"type": "crt.Input",
 					"label": "$Resources.Strings.UsrName",
 					"control": "$UsrName",
-					"labelPosition": "auto"
+					"labelPosition": "above",
+					"visible": true,
+					"readonly": false,
+					"placeholder": "",
+					"tooltip": ""
 				},
 				"parentName": "SideAreaProfileContainer",
 				"propertyName": "items",
@@ -121,8 +206,9 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"control": "$PDS_UsrPrice_ug5a3yp",
 					"readonly": false,
 					"placeholder": "",
-					"labelPosition": "auto",
-					"tooltip": ""
+					"labelPosition": "above",
+					"tooltip": "",
+					"visible": true
 				},
 				"parentName": "SideAreaProfileContainer",
 				"propertyName": "items",
@@ -130,7 +216,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
-				"name": "TicketPrice",
+				"name": "PassengersNumber",
 				"values": {
 					"layoutConfig": {
 						"column": 1,
@@ -139,13 +225,13 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 						"rowSpan": 1
 					},
 					"type": "crt.NumberInput",
-					"label": "$Resources.Strings.PDS_UsrTicketPrice_zdqaa43",
-					"control": "$PDS_UsrTicketPrice_zdqaa43",
-					"readonly": true,
+					"label": "$Resources.Strings.PDS_UsrPassengersNumber_k9pj0u0",
+					"control": "$PDS_UsrPassengersNumber_k9pj0u0",
+					"readonly": false,
 					"placeholder": "",
-					"labelPosition": "auto",
+					"labelPosition": "above",
 					"tooltip": "",
-					"visible": false
+					"visible": true
 				},
 				"parentName": "SideAreaProfileContainer",
 				"propertyName": "items",
@@ -153,7 +239,30 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
-				"name": "DriveType",
+				"name": "TicketPrice",
+				"values": {
+					"layoutConfig": {
+						"column": 1,
+						"colSpan": 1,
+						"row": 4,
+						"rowSpan": 1
+					},
+					"type": "crt.NumberInput",
+					"label": "$Resources.Strings.PDS_UsrTicketPrice_zdqaa43",
+					"control": "$PDS_UsrTicketPrice_zdqaa43",
+					"readonly": true,
+					"placeholder": "",
+					"labelPosition": "above",
+					"tooltip": "",
+					"visible": false
+				},
+				"parentName": "SideAreaProfileContainer",
+				"propertyName": "items",
+				"index": 3
+			},
+			{
+				"operation": "insert",
+				"name": "Number",
 				"values": {
 					"layoutConfig": {
 						"column": 1,
@@ -161,20 +270,15 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 						"row": 1,
 						"rowSpan": 1
 					},
-					"type": "crt.ComboBox",
-					"label": "$Resources.Strings.PDS_UsrDriveType_0kx2cvl",
-					"ariaLabel": "",
-					"isAddAllowed": true,
-					"showValueAsLink": false,
-					"labelPosition": "auto",
-					"controlActions": [],
-					"listActions": [],
-					"tooltip": "",
-					"control": "$PDS_UsrDriveType_0kx2cvl",
-					"visible": true,
-					"readonly": false,
+					"type": "crt.Input",
+					"label": "$Resources.Strings.PDS_UsrNumber_0sq8syd",
+					"control": "$PDS_UsrNumber_0sq8syd",
 					"placeholder": "",
-					"valueDetails": null
+					"tooltip": "",
+					"readonly": true,
+					"multiline": false,
+					"labelPosition": "above",
+					"visible": true
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
@@ -182,7 +286,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
-				"name": "Status",
+				"name": "NumberInput_55qgmt1",
 				"values": {
 					"layoutConfig": {
 						"column": 2,
@@ -190,12 +294,35 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 						"row": 1,
 						"rowSpan": 1
 					},
+					"type": "crt.NumberInput",
+					"label": "$Resources.Strings.PDS_UsrCrewCount_s0ye6ah",
+					"control": "$PDS_UsrCrewCount_s0ye6ah",
+					"readonly": false,
+					"placeholder": "",
+					"labelPosition": "above",
+					"tooltip": "",
+					"visible": true
+				},
+				"parentName": "GeneralInfoTabContainer",
+				"propertyName": "items",
+				"index": 1
+			},
+			{
+				"operation": "insert",
+				"name": "Status",
+				"values": {
+					"layoutConfig": {
+						"column": 1,
+						"colSpan": 1,
+						"row": 2,
+						"rowSpan": 1
+					},
 					"type": "crt.ComboBox",
 					"label": "$Resources.Strings.PDS_UsrStatus_byu3qgm",
 					"ariaLabel": "",
 					"isAddAllowed": true,
 					"showValueAsLink": false,
-					"labelPosition": "auto",
+					"labelPosition": "above",
 					"controlActions": [],
 					"listActions": [],
 					"tooltip": "",
@@ -207,7 +334,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
-				"index": 1
+				"index": 2
 			},
 			{
 				"operation": "insert",
@@ -228,26 +355,56 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
-				"name": "Comment",
+				"name": "Input_h23eilz",
 				"values": {
+					"layoutConfig": {
+						"column": 2,
+						"colSpan": 1,
+						"row": 2,
+						"rowSpan": 1
+					},
 					"type": "crt.Input",
-					"label": "$Resources.Strings.PDS_UsrComment_x76gl2y",
-					"control": "$PDS_UsrComment_x76gl2y",
+					"label": "$Resources.Strings.PDS_UsrCaptain_4qomkc2",
+					"control": "$PDS_UsrCaptain_4qomkc2",
 					"placeholder": "",
 					"tooltip": "",
 					"readonly": false,
 					"multiline": false,
-					"labelPosition": "auto",
-					"layoutConfig": {
-						"column": 1,
-						"colSpan": 1,
-						"row": 2,
-						"rowSpan": 1
-					}
+					"labelPosition": "above",
+					"visible": true
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
-				"index": 2
+				"index": 3
+			},
+			{
+				"operation": "insert",
+				"name": "DriveType",
+				"values": {
+					"layoutConfig": {
+						"column": 1,
+						"colSpan": 1,
+						"row": 3,
+						"rowSpan": 1
+					},
+					"type": "crt.ComboBox",
+					"label": "$Resources.Strings.PDS_UsrDriveType_0kx2cvl",
+					"ariaLabel": "",
+					"isAddAllowed": true,
+					"showValueAsLink": false,
+					"labelPosition": "above",
+					"controlActions": [],
+					"listActions": [],
+					"tooltip": "",
+					"control": "$PDS_UsrDriveType_0kx2cvl",
+					"visible": true,
+					"readonly": false,
+					"placeholder": "",
+					"valueDetails": null
+				},
+				"parentName": "GeneralInfoTabContainer",
+				"propertyName": "items",
+				"index": 4
 			},
 			{
 				"operation": "insert",
@@ -256,7 +413,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"layoutConfig": {
 						"column": 2,
 						"colSpan": 1,
-						"row": 2,
+						"row": 3,
 						"rowSpan": 1
 					},
 					"type": "crt.ComboBox",
@@ -264,7 +421,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"ariaLabel": "",
 					"isAddAllowed": true,
 					"showValueAsLink": true,
-					"labelPosition": "auto",
+					"labelPosition": "above",
 					"controlActions": [],
 					"listActions": [],
 					"tooltip": "",
@@ -276,57 +433,11 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
-				"index": 3
-			},
-			{
-				"operation": "insert",
-				"name": "PassengersNumber",
-				"values": {
-					"layoutConfig": {
-						"column": 1,
-						"colSpan": 1,
-						"row": 3,
-						"rowSpan": 1
-					},
-					"type": "crt.NumberInput",
-					"label": "$Resources.Strings.PDS_UsrPassengersNumber_k9pj0u0",
-					"control": "$PDS_UsrPassengersNumber_k9pj0u0",
-					"readonly": false,
-					"placeholder": "",
-					"labelPosition": "auto",
-					"tooltip": ""
-				},
-				"parentName": "GeneralInfoTabContainer",
-				"propertyName": "items",
-				"index": 4
-			},
-			{
-				"operation": "insert",
-				"name": "Input_8zjllgz",
-				"values": {
-					"layoutConfig": {
-						"column": 2,
-						"colSpan": 1,
-						"row": 3,
-						"rowSpan": 1
-					},
-					"type": "crt.EmailInput",
-					"label": "#ResourceString(Input_8zjllgz_label)#",
-					"control": "$PDS_UsrManagerEmail_8pimq1g",
-					"placeholder": "",
-					"tooltip": "",
-					"readonly": true,
-					"multiline": false,
-					"labelPosition": "auto",
-					"visible": true
-				},
-				"parentName": "GeneralInfoTabContainer",
-				"propertyName": "items",
 				"index": 5
 			},
 			{
 				"operation": "insert",
-				"name": "Country",
+				"name": "NumberInput_fa5pgjx",
 				"values": {
 					"layoutConfig": {
 						"column": 1,
@@ -334,20 +445,14 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 						"row": 4,
 						"rowSpan": 1
 					},
-					"type": "crt.ComboBox",
-					"label": "$Resources.Strings.PDS_UsrColumn15_vxr7wl9",
-					"ariaLabel": "",
-					"isAddAllowed": true,
-					"showValueAsLink": false,
-					"labelPosition": "auto",
-					"controlActions": [],
-					"listActions": [],
-					"tooltip": "",
-					"control": "$PDS_UsrColumn15_vxr7wl9",
-					"visible": true,
+					"type": "crt.NumberInput",
+					"label": "$Resources.Strings.PDS_UsrLength_uv2g2fm",
+					"control": "$PDS_UsrLength_uv2g2fm",
 					"readonly": false,
 					"placeholder": "",
-					"valueDetails": null
+					"labelPosition": "above",
+					"tooltip": "",
+					"visible": true
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
@@ -355,55 +460,27 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 			},
 			{
 				"operation": "insert",
-				"name": "Number",
+				"name": "Comment",
 				"values": {
+					"type": "crt.Input",
+					"label": "$Resources.Strings.PDS_UsrComment_x76gl2y",
+					"control": "$PDS_UsrComment_x76gl2y",
+					"placeholder": "",
+					"tooltip": "",
+					"readonly": false,
+					"multiline": false,
+					"labelPosition": "above",
 					"layoutConfig": {
 						"column": 2,
 						"colSpan": 1,
 						"row": 4,
 						"rowSpan": 1
 					},
-					"type": "crt.Input",
-					"label": "$Resources.Strings.PDS_UsrNumber_0sq8syd",
-					"control": "$PDS_UsrNumber_0sq8syd",
-					"placeholder": "",
-					"tooltip": "",
-					"readonly": true,
-					"multiline": false,
-					"labelPosition": "auto"
+					"visible": true
 				},
 				"parentName": "GeneralInfoTabContainer",
 				"propertyName": "items",
 				"index": 7
-			},
-			{
-				"operation": "insert",
-				"name": "City",
-				"values": {
-					"layoutConfig": {
-						"column": 2,
-						"colSpan": 1,
-						"row": 5,
-						"rowSpan": 1
-					},
-					"type": "crt.ComboBox",
-					"label": "$Resources.Strings.PDS_UsrCity_e6ow00b",
-					"ariaLabel": "",
-					"isAddAllowed": true,
-					"showValueAsLink": false,
-					"labelPosition": "auto",
-					"controlActions": [],
-					"listActions": [],
-					"tooltip": "",
-					"control": "$PDS_UsrCity_e6ow00b",
-					"visible": true,
-					"readonly": false,
-					"placeholder": "",
-					"valueDetails": null
-				},
-				"parentName": "GeneralInfoTabContainer",
-				"propertyName": "items",
-				"index": 8
 			},
 			{
 				"operation": "insert",
@@ -416,7 +493,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					"selectSchemaName": "UsrYachtCategoryStorage",
 					"selectColumnName": "UsrCategory",
 					"visible": true,
-					"labelPosition": "auto",
+					"labelPosition": "above",
 					"placeholder": "",
 					"tooltip": "",
 					"required": false
@@ -852,7 +929,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 							"MySuperValidator": {
 								"type": "usr.DGValidator",
 								"params": {
-									"minValue": 200,
+									"minValue": 500,
 									"message": "#ResourceString(PriceCannotBeLess)#"
 								}
 							}
@@ -936,50 +1013,9 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 							"path": "PDS.UsrNumber"
 						}
 					},
-					"PDS_UsrColumn15_vxr7wl9": {
-						"modelConfig": {
-							"path": "PDS.UsrColumn15"
-						}
-					},
-					"PDS_UsrColumn15_vxr7wl9_List": {
-						"isCollection": true,
-						"modelConfig": {
-							"sortingConfig": {
-								"default": [
-									{
-										"columnName": "Name",
-										"direction": "asc"
-									}
-								]
-							}
-						}
-					},
-					"PDS_UsrCity_e6ow00b": {
-						"modelConfig": {
-							"path": "PDS.UsrCity"
-						}
-					},
-					"PDS_UsrCity_e6ow00b_List": {
-						"isCollection": true,
-						"modelConfig": {
-							"sortingConfig": {
-								"default": [
-									{
-										"columnName": "Name",
-										"direction": "asc"
-									}
-								]
-							}
-						}
-					},
 					"PDS_UsrTicketPrice_zdqaa43": {
 						"modelConfig": {
 							"path": "PDS.UsrTicketPrice"
-						}
-					},
-					"PDS_UsrManagerEmail_8pimq1g": {
-						"modelConfig": {
-							"path": "PDS.UsrManagerEmail_8pimq1g"
 						}
 					},
 					"GridDetail_d9hk2of": {
@@ -1042,6 +1078,21 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 					},
 					"MultiSelect_4aeiey2_List_Items_Predefined_Filter": {
 						"value": null
+					},
+					"PDS_UsrLength_uv2g2fm": {
+						"modelConfig": {
+							"path": "PDS.UsrLength"
+						}
+					},
+					"PDS_UsrCaptain_4qomkc2": {
+						"modelConfig": {
+							"path": "PDS.UsrCaptain"
+						}
+					},
+					"PDS_UsrCrewCount_s0ye6ah": {
+						"modelConfig": {
+							"path": "PDS.UsrCrewCount"
+						}
 					}
 				}
 			},
@@ -1083,12 +1134,7 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 						"type": "crt.EntityDataSource",
 						"config": {
 							"entitySchemaName": "UsrYacht",
-							"attributes": {
-								"UsrManagerEmail_8pimq1g": {
-									"path": "UsrManager.Email",
-									"type": "ForwardReference"
-								}
-							}
+							"attributes": {}
 						},
 						"scope": "page"
 					},
@@ -1150,6 +1196,40 @@ define("UsrYacht_FormPage", /**SCHEMA_DEPS*/[]/**SCHEMA_DEPS*/, function/**SCHEM
 						}
 						request.$context.PDS_UsrTicketPrice_zdqaa43 = ticket_price;
 					}
+					/* Call the next handler if it exists and return its result. */
+					return next?.handle(request);
+				}
+			},
+			{
+				request: "usr.RunMaxPriceWebServiceRequest",
+				/* Implementation of the custom query handler. */
+				handler: async (request, next) => {
+					console.log("Run web service button works...");
+
+					// get id from drive type lookup type object
+					var typeObject = await request.$context.PDS_UsrDriveType_0kx2cvl;
+					var selectedDriveTypeId = "";
+					if (typeObject) {
+						selectedDriveTypeId = typeObject.value;
+					}
+					/* Create an instance of the HTTP client from @creatio-devkit/common. */
+					const httpClientService = new sdk.HttpClientService();
+					/* Specify the URL to run web service method. */
+					const baseUrl = Terrasoft.utils.uri.getConfigurationWebServiceBaseUrl();
+					const transferName = "rest";
+					const serviceName = "YachtService";
+					const methodName = "GetMaxPriceByDriveTypeId";
+					const endpoint = Terrasoft.combinePath(baseUrl, transferName, serviceName, methodName);
+					
+					//const endpoint = "http://localhost/D1_Studio/0/rest/YachtService/GetMaxPriceByDriveTypeId";
+					/* Send a POST HTTP request. The HTTP client converts the response body from JSON to a JS object automatically. */
+					var params = {
+						driveTypeId: selectedDriveTypeId
+					};
+					const response = await httpClientService.post(endpoint, params);
+					
+					console.log("response max price = " + response.body.GetMaxPriceByDriveTypeIdResult);
+					
 					/* Call the next handler if it exists and return its result. */
 					return next?.handle(request);
 				}

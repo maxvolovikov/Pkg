@@ -3,6 +3,9 @@
 	<Group Type="String">
 		<Items>
 			<Item Name="Caption" Value="Yacht form page" />
+			<Item Name="LocalizableStrings.ActionsButton_caption.Value" Value="Actions" />
+			<Item Name="LocalizableStrings.CalcAvgPriceProcessMenuItem_caption.Value" Value="Calculate average ticket price process" />
+			<Item Name="LocalizableStrings.CreateYachtRentals_caption.Value" Value="Create Yacht Rentals" />
 			<Item Name="LocalizableStrings.ExpansionPanel_phf4902_title.Value" Value="Yacht Rental" />
 			<Item Name="LocalizableStrings.GridDetailAddBtn_qj39ztn_caption.Value" Value="New" />
 			<Item Name="LocalizableStrings.GridDetailExportDataBtn_ulfco4u_caption.Value" Value="Export to Excel" />
@@ -10,11 +13,11 @@
 			<Item Name="LocalizableStrings.GridDetailRefreshBtn_cw4kwgs_caption.Value" Value="Refresh" />
 			<Item Name="LocalizableStrings.GridDetailSearchFilter_emy5q3k_placeholder.Value" Value="Search" />
 			<Item Name="LocalizableStrings.GridDetailSettingsBtn_u1vo09m_caption.Value" Value="Actions" />
-			<Item Name="LocalizableStrings.Input_8zjllgz_label.Value" Value="Manager's email" />
 			<Item Name="LocalizableStrings.MultiSelect_4aeiey2_label.Value" Value="Categories" />
 			<Item Name="LocalizableStrings.PassengersNumberCannotBeLess.Value" Value="Passengers number cannot be less then 2." />
-			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Price cannot be less then 200 USD." />
+			<Item Name="LocalizableStrings.PriceCannotBeLess.Value" Value="Price cannot be less then 500 EUR." />
 			<Item Name="LocalizableStrings.PushMeButton_caption.Value" Value="Push me!" />
+			<Item Name="LocalizableStrings.RunWebServiceMenuItem_caption.Value" Value="Run Max price web service" />
 			<Item Name="LocalizableStrings.addRecord_b22swi7_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_fkc4b3n_caption.Value" Value="Add new" />
 			<Item Name="LocalizableStrings.addRecord_ltx1gyq_caption.Value" Value="Add new" />

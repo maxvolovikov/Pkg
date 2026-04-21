@@ -5,9 +5,11 @@
 			<Item Name="Caption" Value="Yacht Rental" />
 			<Item Name="Columns.UsrComment.Caption" Value="Comment" />
 			<Item Name="Columns.UsrCustomer.Caption" Value="Customer" />
-			<Item Name="Columns.UsrEndDate.Caption" Value="End Date" />
+			<Item Name="Columns.UsrEndDate.Caption" Value="Rental End" />
+			<Item Name="Columns.UsrManager.Caption" Value="Manager" />
 			<Item Name="Columns.UsrParentYacht.Caption" Value="Parent Yacht" />
-			<Item Name="Columns.UsrStartDate.Caption" Value="Start Date" />
+			<Item Name="Columns.UsrStartDate.Caption" Value="Rental Start" />
+			<Item Name="Columns.UsrTotalPriceEUR.Caption" Value="Total Price, EUR" />
 		</Items>
 	</Group>
 </Resources>

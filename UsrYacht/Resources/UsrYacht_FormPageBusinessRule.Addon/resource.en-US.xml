@@ -2,6 +2,7 @@
 <Resources Culture="en-US">
 	<Group Type="String">
 		<Items>
+			<Item Name="AddonConfig.Rules.3ba76a99-a7f0-c33c-a189-86bab68951dd.Caption" Value="Make elements required: Comment" />
 			<Item Name="AddonConfig.Rules.75d26793-3199-47c4-93c0-3886642ab0fa.Caption" Value="Show elements: Ticket Price" />
 			<Item Name="AddonConfig.Rules.9bbfab90-70d6-4319-7948-77dc388fdb7f.Caption" Value="Hide elements: Comment" />
 			<Item Name="AddonConfig.Rules.fb1120d0-23c9-f4ce-74e8-773c1743eccf.Caption" Value="Show elements: Comment" />

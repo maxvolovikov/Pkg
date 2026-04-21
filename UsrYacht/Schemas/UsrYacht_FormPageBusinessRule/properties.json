@@ -2,6 +2,7 @@
   "Properties": {
     "AddonName": "BusinessRule",
     "CreatedInVersion": "8.3.3.3193",
+    "OptionalProperties": "{}",
     "TargetSchemaManagerName": "ClientUnitSchemaManager",
     "TargetSchemaUId": "89bfd2b1-79af-4856-92b6-46ff631c0425"
   }
